@@ -1,0 +1,46 @@
+.list-jokes {
+  width: 1000px;
+  border-radius: 15px;
+  background-color: #99aab5;
+  padding: 10px 20px;
+}
+
+.list-jokes-item {
+  margin: 15px;
+  margin-bottom: 0;
+}
+
+.list-jokes-item:not(:first-child) {
+  padding-bottom: 10px;
+  border-top: 1px solid;
+}
+
+.like-btn-joke {
+  margin-left: 30px;
+  background-color: green;
+}
+
+.dislike-btn-joke {
+  margin-left: 30px;
+  background-color: red;
+}
+
+.add-joke {
+  margin: 25px 0;
+  padding: 25px;
+  background-color: #99aab5;
+  border-radius: 15px;
+}
+
+.input-area {
+  width: 500px;
+  height: 70px;
+  margin-right: 25px;
+  border-radius: 15px;
+  border: 0;
+  background-color: #aab6e0;
+}
+
+.add-btn {
+
+}

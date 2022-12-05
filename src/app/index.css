@@ -1,0 +1,25 @@
+.wrapper {
+  max-width: 1300px;
+  max-height: 1350px;
+  margin: 0;
+  padding: 0;
+}
+
+.main-contant {
+  display: flex;
+}
+
+.title-content {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding-right: 15px;
+  display: flex;
+  background-color: #23272a;
+}
+
+.list-content {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding-right: 15px;
+  background-color: #23272a;
+}
