@@ -37,9 +37,12 @@ const App = () => {
   }
 
   const selectlikeJokes = (joke) => {
-    setSelected({
-      likeJokes: joke
-    })
+    setSelected(
+      {
+        theme: selected.theme,
+        likeJokes: [...selected.likeJokes, joke]
+      }
+    )
     console.log(selected)
   }
 
