@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './index.css'
 
-const List_jokes = ({selected, titleJokes}) => {
+const List_jokes = ({selected, selectlikeJokes}) => {
 
   const [listJokes, setListJokes] = useState([])
 
@@ -12,20 +12,41 @@ const List_jokes = ({selected, titleJokes}) => {
       setListJokes(data)
   })}, [selected])
 
+  console.log(selected.theme)
+
   const element = listJokes.map((item) => {
     if (item.genre == selected.theme) {
       return(
-        <li key={item.guid}>
-          {item.text}
+        <li key={item.guid}
+        className='list-jokes-item'>
+          <div>
+            {item.text}
+          </div>
+          <button
+            onClick={()=> selectlikeJokes(item)}
+            className='like-btn-joke'
+            >
+            like
+          </button>
         </li>
       )
     }
   })
 
   return(
-    <ol>
-      {element}
-    </ol>
+    <div>
+      <div className="add-joke">
+        <input
+          className='input-area'/>
+        <button
+          className='add-btn'>
+          Add Joke
+        </button>
+      </div>
+      <ol className='list-jokes'>
+        {element}
+      </ol>
+    </div>
   )
 }
 

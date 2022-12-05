@@ -8,7 +8,8 @@ const App = () => {
   const [titleJokes, setTitleJokes] = useState([])
   const [selected, setSelected] = useState(
     {
-      theme: '3f43f270-563f-428b-a706-a6c29854dc47'
+      theme: '3f43f270-563f-428b-a706-a6c29854dc47',
+      likeJokes: []
     }
   )
 
@@ -35,26 +36,11 @@ const App = () => {
   // console.log(selected)
   }
 
-  const selectLikeTitle = () => {
-    setSelected(
-      {
-        theme: selected.theme,
-        likeJokes: selected.likeJokes,
-        selectLike: 1
-      }
-    )
-    // console.log(selected)
-  }
-
   const selectlikeJokes = (joke) => {
-    setSelected(
-      {
-        theme: selected.theme,
-        likeJokes: [...selected.likeJokes, joke],
-        selectLike: 0 
-      }
-    )
-    // console.log(selected)
+    setSelected({
+      likeJokes: joke
+    })
+    console.log(selected)
   }
 
   const dislikeJoke = (joke) => {
@@ -86,7 +72,11 @@ const App = () => {
           <List_title_jokes titleJokes={titleJokes} changeTitle={changeTitle}/>
         </div>
         <div className="list-content">
-          <List_jokes selected={selected} titleJokes={titleJokes}/>
+          <List_jokes 
+            selected={selected}
+            titleJokes={titleJokes}
+            selectlikeJokes={selectlikeJokes}
+          />
         </div>
       </div>
     </div>
