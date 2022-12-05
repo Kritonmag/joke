@@ -87,12 +87,9 @@ const App = () => {
         <div className='title-content'>
           <List_title_jokes titleJokes={titleJokes} changeTitle={changeTitle} 
             selected={selected} selectLikeTitle={selectLikeTitle}/>
-            {/* <List_title_jokes_api titleJokes={titleJokes} changeTitle={changeTitle} 
-            selected={selected} selectLikeTitle={selectLikeTitle}/> */}
         </div>
         <div className="list-content">
-          <List_jokes selected={selected} selectlikeJokes={selectlikeJokes} dislikeJoke={dislikeJoke}/>
-          {/* <List_jokes_api setTitleJokes={setTitleJokes} titleJokes={titleJokes} selected={selected} selectlikeJokes={selectlikeJokes} dislikeJoke={dislikeJoke}/> */}
+          {/* <List_jokes selected={selected} selectlikeJokes={selectlikeJokes} dislikeJoke={dislikeJoke}/> */}
         </div>
       </div>
     </div>
