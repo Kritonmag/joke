@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import List_jokes from '../list_jokes';
-import List_title_jokes_api from '../list_title_jokes';
 import List_title_jokes from '../list_title_jokes';
 import './index.css'
-import List_jokes_api from './list_jokes_api';
 
 const App = () => {
 
