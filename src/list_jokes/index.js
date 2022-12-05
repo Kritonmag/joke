@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import AddJoke from '../addJoke';
 import './index.css'
 
 const List_jokes = ({selected, selectlikeJokes}) => {
@@ -10,9 +11,9 @@ const List_jokes = ({selected, selectlikeJokes}) => {
     .then(res => res.json())
     .then(data => {
       setListJokes(data)
-  })}, [selected])
+  })},[])
 
-  console.log(selected.theme)
+  console.log(listJokes)
 
   const element = listJokes.map((item) => {
     if (item.genre == selected.theme) {
@@ -31,17 +32,20 @@ const List_jokes = ({selected, selectlikeJokes}) => {
         </li>
       )
     }
+    if (selected.theme == 'favorites' && item.like == true) {
+      return(
+        <li key={item.guid}
+          className='list-jokes-item'>
+          {item.text}
+        </li>
+      )
+    }
   })
 
   return(
     <div>
-      <div className="add-joke">
-        <input
-          className='input-area'/>
-        <button
-          className='add-btn'>
-          Add Joke
-        </button>
+      <div>
+        <AddJoke listJokes={listJokes} setListJokes={setListJokes}/>
       </div>
       <ol className='list-jokes'>
         {element}

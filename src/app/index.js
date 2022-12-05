@@ -31,19 +31,16 @@ const App = () => {
 
   const changeTitle = (name) => {
     setSelected({
-      theme: name.guid
+      theme: name.guid,
+      likeJokes: selected.likeJokes
     })
   // console.log(selected)
   }
 
   const selectlikeJokes = (joke) => {
-    setSelected(
-      {
-        theme: selected.theme,
-        likeJokes: [...selected.likeJokes, joke]
-      }
-    )
-    console.log(selected)
+    joke.like = true
+
+    // console.log(joke)
   }
 
   const dislikeJoke = (joke) => {
@@ -55,16 +52,10 @@ const App = () => {
         listLikeJokes.splice(i, 1)
       }
     }
+  }
 
-    setSelected(
-      {
-        theme: selected.theme,
-        likeJokes: listLikeJokes,
-        selectLike: 1 
-      }
-    )
-    // console.log(selected)
-
+  const addJoke = (value) => {
+    console.log(value)
   }
 
   return(
@@ -77,8 +68,8 @@ const App = () => {
         <div className="list-content">
           <List_jokes 
             selected={selected}
-            titleJokes={titleJokes}
             selectlikeJokes={selectlikeJokes}
+            addJoke={addJoke}
           />
         </div>
       </div>
