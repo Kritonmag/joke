@@ -8,16 +8,20 @@ const App = () => {
   const [titleJokes, setTitleJokes] = useState([])
   const [selected, setSelected] = useState(
     {
-      theme: '3f43f270-563f-428b-a706-a6c29854dc47',
-      likeJokes: [],
-      selectLike: 0
+      theme: '3f43f270-563f-428b-a706-a6c29854dc47'
     }
   )
+
+  const btnLike = {
+    guid: 'favorites',
+    name: 'ИЗБРАННЫЕ'
+  }
 
   useEffect(() => {
     fetch('http://localhost:5000/api/genres')
     .then(res => res.json())
     .then(data => {
+      data = [...data, btnLike]
       setTitleJokes(data)
     })
   }, [])
@@ -25,13 +29,9 @@ const App = () => {
   // console.log(titleJokes)
 
   const changeTitle = (name) => {
-  setSelected(
-    {
-      theme: name.guid,
-      likeJokes: selected.likeJokes,
-      selectLike: 0
-    }
-  )
+    setSelected({
+      theme: name.guid
+    })
   // console.log(selected)
   }
 
@@ -83,11 +83,10 @@ const App = () => {
       <div>JOKES</div>
       <div className='main-contant'>
         <div className='title-content'>
-          <List_title_jokes titleJokes={titleJokes} changeTitle={changeTitle} 
-            selected={selected} selectLikeTitle={selectLikeTitle}/>
+          <List_title_jokes titleJokes={titleJokes} changeTitle={changeTitle}/>
         </div>
         <div className="list-content">
-          {/* <List_jokes selected={selected} selectlikeJokes={selectlikeJokes} dislikeJoke={dislikeJoke}/> */}
+          <List_jokes selected={selected} titleJokes={titleJokes}/>
         </div>
       </div>
     </div>
