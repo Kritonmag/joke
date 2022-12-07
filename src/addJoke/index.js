@@ -1,19 +1,24 @@
 import React, {useState} from 'react';
 import './index.css'
 
-const AddJoke = ({listJokes, setListJokes}) => {
+const AddJoke = ({listJokes, setListJokes, selected}) => {
 
   const [value, setValue] = useState('')
 
   const saveJoke = () => {
-    setListJokes(
-      [...listJokes, {
-        guid: 1,
-        genre: '3f43f270-563f-428b-a706-a6c29854dc47',
-        text: value
-      }]
-    )
-    setValue('')
+    if (value == '' || value == ' '){
+      return
+    } else {
+      let guid = 1
+      setListJokes(
+        [{
+          guid: guid++,
+          genre: selected.theme,
+          text: value
+        },...listJokes]
+      )
+      setValue('')
+    }
   }
 
   return(

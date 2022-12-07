@@ -39,23 +39,11 @@ const App = () => {
 
   const selectlikeJokes = (joke) => {
     joke.like = true
-
-    // console.log(joke)
   }
 
-  const dislikeJoke = (joke) => {
-
-    let listLikeJokes = [...selected.likeJokes]
-
-    for (let i = 0; i < listLikeJokes.length; i++) {
-      if (listLikeJokes[i].guid === joke.guid) {
-        listLikeJokes.splice(i, 1)
-      }
-    }
-  }
-
-  const addJoke = (value) => {
-    console.log(value)
+  const selectDislikeJokes = (joke) => {
+    console.log(joke)
+    joke.like = false
   }
 
   return(
@@ -69,7 +57,7 @@ const App = () => {
           <List_jokes 
             selected={selected}
             selectlikeJokes={selectlikeJokes}
-            addJoke={addJoke}
+            selectDislikeJokes={selectDislikeJokes}
           />
         </div>
       </div>

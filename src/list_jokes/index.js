@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import AddJoke from '../addJoke';
+import Dislike_Btn from '../dislike-btn';
+import Like_Btn from '../like-btn';
 import './index.css'
 
-const List_jokes = ({selected, selectlikeJokes}) => {
+const List_jokes = ({selected, selectlikeJokes,selectDislikeJokes}) => {
 
   const [listJokes, setListJokes] = useState([])
 
@@ -13,22 +15,21 @@ const List_jokes = ({selected, selectlikeJokes}) => {
       setListJokes(data)
   })},[])
 
-  console.log(listJokes)
+  // console.log(listJokes)
 
   const element = listJokes.map((item) => {
     if (item.genre == selected.theme) {
+      // console.log(item)
       return(
         <li key={item.guid}
         className='list-jokes-item'>
           <div>
             {item.text}
           </div>
-          <button
-            onClick={()=> selectlikeJokes(item)}
-            className='like-btn-joke'
-            >
-            like
-          </button>
+          <Like_Btn
+            selectlikeJokes={selectlikeJokes}
+            item={item}
+            />
         </li>
       )
     }
@@ -36,7 +37,14 @@ const List_jokes = ({selected, selectlikeJokes}) => {
       return(
         <li key={item.guid}
           className='list-jokes-item'>
-          {item.text}
+          <div>
+            {item.text}
+          </div>
+          <div>
+            <Dislike_Btn 
+            selectDislikeJokes={selectDislikeJokes}
+            item={item}/>
+          </div>
         </li>
       )
     }
@@ -45,7 +53,10 @@ const List_jokes = ({selected, selectlikeJokes}) => {
   return(
     <div>
       <div>
-        <AddJoke listJokes={listJokes} setListJokes={setListJokes}/>
+        <AddJoke 
+          listJokes={listJokes} 
+          setListJokes={setListJokes}
+          selected={selected}/>
       </div>
       <ol className='list-jokes'>
         {element}
