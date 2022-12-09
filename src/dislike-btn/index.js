@@ -3,7 +3,7 @@ import './index.css'
 
 const Dislike_Btn = ({selectDislikeJokes,item}) => {
 
-  const [isActive, setIsActive] = useState('')
+  // const [isActive, setIsActive] = useState('')
   // console.log(item)
   // console.log(isActive, 'isActive')
 

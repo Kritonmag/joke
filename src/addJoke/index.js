@@ -9,16 +9,17 @@ const AddJoke = ({listJokes, setListJokes, selected}) => {
     if (value == '' || value == ' '){
       return
     } else {
-      let guid = 1
+      let newJoke = {
+        guid: ++selected.guid,
+        genre: selected.theme,
+        text: value
+      }
       setListJokes(
-        [{
-          guid: guid++,
-          genre: selected.theme,
-          text: value
-        },...listJokes]
+        [newJoke,...listJokes]
       )
       setValue('')
     }
+    console.log(listJokes[0],listJokes[1],listJokes[2])
   }
 
   return(

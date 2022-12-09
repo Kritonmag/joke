@@ -16,7 +16,20 @@
   transition: all .7s;
 }
 
+.select-title-jokes-item {
+  font-size: 16px;
+  border-radius: 15px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #4a6be3;
+  cursor: pointer;
+}
+
 .title-jokes-item:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.select-title-jokes-item:not(:last-child) {
   margin-bottom: 15px;
 }
 

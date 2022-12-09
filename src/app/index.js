@@ -9,7 +9,8 @@ const App = () => {
   const [selected, setSelected] = useState(
     {
       theme: '3f43f270-563f-428b-a706-a6c29854dc47',
-      likeJokes: []
+      guid: 1,
+      select: true
     }
   )
 
@@ -32,9 +33,10 @@ const App = () => {
   const changeTitle = (name) => {
     setSelected({
       theme: name.guid,
-      likeJokes: selected.likeJokes
+      guid: selected.guid,
+      select: !selected.select
     })
-  // console.log(selected)
+  console.log(selected)
   }
 
   const selectlikeJokes = (joke) => {
@@ -51,7 +53,10 @@ const App = () => {
       <div>JOKES</div>
       <div className='main-contant'>
         <div className='title-content'>
-          <List_title_jokes titleJokes={titleJokes} changeTitle={changeTitle}/>
+          <List_title_jokes 
+            titleJokes={titleJokes} 
+            changeTitle={changeTitle}
+            selected={selected}/>
         </div>
         <div className="list-content">
           <List_jokes 

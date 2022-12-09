@@ -4,14 +4,13 @@ import './index.css'
 const Like_Btn = ({selectlikeJokes,item}) => {
 
   const [isActive, setIsActive] = useState('')
-  // console.log(item)
-  // console.log(isActive, 'isActive')
+
   return(
     <>
       <button
-        className={isActive}
+        className={item.like == true ? 'like-btn' : ' '}
         onClick={()=>{selectlikeJokes(item);
-          item.like == true ? setIsActive('like-btn') : setIsActive(' ')}}
+          item.like == true ? setIsActive('like-btn') : setIsActive(' ');}}
         > 
         Like 
       </button>
